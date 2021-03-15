@@ -81,6 +81,7 @@ internal class MenuParser(private val context: Context) {
             tintMode = readIconTintMode(sAttr),
             textColor = readTextActiveColor(sAttr),
             backgroundColor = readBackgroundColor(sAttr),
+            unselected_iconColor = readIconInActiveColor(sAttr),
             menuStyle = menuStyle
         )
 
@@ -99,11 +100,16 @@ internal class MenuParser(private val context: Context) {
             else -> null
         }
 
+    private fun readIconInActiveColor(sAttr: TypedArray): Int = sAttr.getColor(
+        R.styleable.ChipMenuItem_cnb_unselected_iconColor,
+        context.getValueFromAttr(R.attr.colorAccent)
+    )
+    
     private fun readIconActiveColor(sAttr: TypedArray): Int = sAttr.getColor(
         R.styleable.ChipMenuItem_cnb_iconColor,
         context.getValueFromAttr(R.attr.colorAccent)
     )
-
+    
     private fun readTextActiveColor(sAttr: TypedArray): Int =
         sAttr.getColor(
             R.styleable.ChipMenuItem_cnb_textColor,
