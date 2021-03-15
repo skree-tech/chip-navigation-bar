@@ -15,5 +15,6 @@ internal class MenuItem(
     @ColorInt val iconColor: Int,
     @ColorInt val textColor: Int,
     @ColorInt val backgroundColor: Int,
+    @ColorInt val unselected_iconColor: Int,
     val menuStyle: MenuStyle
 )
